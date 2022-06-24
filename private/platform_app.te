@@ -116,6 +116,10 @@ perfetto_producer(platform_app)
 # Allow platform apps to create VMs
 virtualizationservice_use(platform_app)
 
+# Allow OTA app to invoke update_engine
+allow platform_app update_engine_service:service_manager find;
+binder_call(platform_app, update_engine);
+
 ###
 ### Neverallow rules
 ###
