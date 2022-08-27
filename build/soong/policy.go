@@ -512,6 +512,7 @@ func (c *policyBinary) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 	}
 	rule.Temporary(bin)
 
+	/*
 	// permissive check is performed only in user build (not debuggable).
 	if !ctx.Config().Debuggable() {
 		permissiveDomains := android.PathForModuleOut(ctx, c.stem()+"_permissive")
@@ -543,6 +544,7 @@ func (c *policyBinary) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 			Input(permissiveDomains).
 			Text("; exit 1; fi")
 	}
+	*/
 
 	out := android.PathForModuleOut(ctx, c.stem())
 	rule.Command().Text("cp").
